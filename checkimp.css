@@ -1,5 +1,6 @@
+
 * {
-    font-size: 10px;
+    font-size: 11px;
     font-family: 'Times New Roman';
 }
 
@@ -29,6 +30,7 @@ th.precio {
     width: 40px;
     max-width: 40px;
     word-break: break-all;
+    text-align: right;
 }
 
 .centrado {
@@ -45,6 +47,10 @@ img {
     max-width: inherit;
     width: inherit;
 }
+button {
+    margin-top: 8px;
+    margin-left: 40px;
+ }
 
 @media print {
     .oculto-impresion,
