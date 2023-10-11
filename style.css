@@ -12,6 +12,13 @@ table {
   width: 100%;
 }
 
+@media (min-width: 370px) {
+  #main-container {
+      width: 90%; 
+  }
+}
+
+
 @media (min-width: 768px) {
   #main-container {
       width: 80%; 
