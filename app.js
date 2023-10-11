@@ -592,6 +592,7 @@ const foodItem= [
 
 
 var acumulador = 0;
+var comandElement = document.getElementById("comand");
 const btnClearStorage = document.querySelector("#btnClearStorage"); // botón para eliminar todos los registros
 btnClearStorage.addEventListener("click", () => {
     // Llama a una función para eliminar los datos almacenados
@@ -621,17 +622,16 @@ var lastComandaNumber = parseInt(localStorage.getItem("lastComanda")) || 0;
 if (lastComandaNumber === 0) {
   // Si no hay ningún pedido en el Local Storage, establecer el número de comanda inicial a 1
   lastComandaNumber = 1;
-} else {
-  // Si hay un pedido en el Local Storage, incrementar el número de comanda para la nueva comanda
-  lastComandaNumber += 1;
   localStorage.setItem("lastComanda", lastComandaNumber)
-  totalElement.innerHTML = '';
-  acumulador = 0;
-}
+} else {
+        // Si hay un pedido en el Local Storage, incrementar el número de comanda para la nueva comanda
+        lastComandaNumber += 1;
+        totalElement.innerHTML = '';
+        acumulador = 0;
+    }
 
 // Mostrar el número de comanda en el campo de input
-comandaInput.value = lastComandaNumber;
-
+comandElement.textContent = ("("+ lastComandaNumber + ")");
 
 // Manejar el evento change del elemento select
 selectElement.addEventListener("change", function() {
@@ -642,7 +642,7 @@ selectElement.addEventListener("change", function() {
   const selectedItem = foodItem.find(item => item.id === selectedId);
 
   // Obtén el valor de la comanda desde el input
-  const comanda = parseInt(comandaInput.value);
+  const comanda = parseInt(lastComandaNumber);
 
   // Agrega la comanda al elemento seleccionado
   selectedItem.comanda = comanda;
@@ -664,11 +664,8 @@ selectElement.addEventListener("change", function() {
 
   // Guardar los pedidos en el Local Storage
   saveToLocalStorage(selectedItem);
-  console.log("entro a la funcion " + selectedItem.name)
-
   // Guardar el número de comanda actualizado en el Local Storage
   localStorage.setItem("lastComanda", lastComandaNumber);
-
   acumulador = acumulador + selectedItem.price
   totalElement.innerHTML = acumulador.toFixed(2);
 
@@ -732,48 +729,7 @@ salvarButton.addEventListener("click", function() {
   totalElement.innerHTML = '';
   acumulador = 0;
 
-  // Aviso para el usuario de que la comanda actual ha sido cerrada y se puede comenzar una nueva
-  // alert("Comanda ha sido salvada. Puedes comenzar una nueva comanda.");
   location.reload();  
-});
-
-
-// Obtén una referencia al botón "Editar" en tu HTML
-const editarButton = document.getElementById("btnEdi");
-
-// Agrega un evento de clic al botón "Editar"
-editarButton.addEventListener("click", function() {
-  // Obtén el número de comanda que se desea editar
-  acumulador = 0
-  var numeroComanda = comandaInput.value;
-
-  // Limpiar la tabla de productos seleccionados en la comanda
-    selectedItemsTableBody.innerHTML = '';
-    totalElement.innerHTML = '';
-    acumulador = 0;
-
-    // Mostrar los productos de la comanda en la tabla
-
-    const comanda = JSON.parse(localStorage.getItem("orders")) || [];
-    
-    const seleccion = comanda.filter((item) => item.comanda == numeroComanda);
-    seleccion.forEach((item) => {
-      const newRow = document.createElement("tr");
-      newRow.innerHTML = `
-        <td><img src="${item.img}" alt="Imagen del artículo seleccionado" style="width: 50px; height: 50px;"></td>
-        <td>${item.id}</td>
-        <td>${item.name}</td>
-        <td>R$${item.price.toFixed(2)}</td>
-        <td><button class="deleteButton"><i class='bx bx-trash'></button></td> <!-- Botón de eliminar -->
-      `;
-
-      // Agregar la nueva fila a la tabla
-      selectedItemsTableBody.appendChild(newRow);
-      acumulador = acumulador + item.price
-    });
-
-    totalElement.innerHTML = acumulador.toFixed(2);
-
 });
 
 /*
@@ -801,9 +757,9 @@ function clearStorage() {
   
       // Limpia los campos de entrada
       Comanda.value = 0;
-      comandaInput.value = 0;
+      lastComandaNumber = 0;
+      comandElement = 0;
       numeroComanda = 0;
-  
     }
   }
 

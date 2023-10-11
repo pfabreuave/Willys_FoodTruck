@@ -4,11 +4,9 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="app.js" type="text/javascript" defer></script>
-  <!-- <script type="module" src="fooditem.js"></script> -->
+  <link rel="stylesheet" href="style.css"> <script src="edit.js"></script>
   <link rel="shortcut icon" href="willyC.ico" type="image/x-icon">
   <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-  <link rel="stylesheet" href="style.css">
   <title>FoodTruck</title>
 </head>
 <body>
@@ -17,22 +15,15 @@
     <h1>
       FoodTruck WILLY´S
     </h1>
-    
-
-    <h2>Comanda
-      <span style="font-weight: bold;" class="comand" id="comand"></span>
-      <a href="edit.html" target="_blank">
-        <button id="btnEdi">Editar</button> 
-      </a>
-      <button id="btnCer">Salvar</button>
-      <a href="checkimp.html" target="_blank">
-        <button id="Check">Checkout</button>
-      </a> 
-    </h2>
 
     <div class="newItem" style="display: flex; flex-direction: row;">
       <div style="flex: 1;">
-        <select   id="miSelect"></select>
+        <h2>Numero de comanda =
+            <span class="comand"></span>
+            Cantidad de Items =
+            <span class="cantItems"></span>
+            
+        </h2>
       </div>
       <div style="flex: 1; font-size: 30px;">
         Total: R$
@@ -40,7 +31,6 @@
       </div>
     </div>
     <div id="main-container" class="selectedItem">
-         
         <table>
           <thead>
             <tr>
@@ -48,18 +38,12 @@
               <th>ID</th>
               <th>Nombre</th>
               <th>Precio</th>
-              <th class="columnAction"></th> <!-- Nueva columna para el botón de eliminar -->
+              <th class="columnAction"></th>
             </tr>
           </thead>
           <tbody id="selectedItemsTableBody"></tbody>
         </table>
       </div>
-    <div class="setItem">
-        <button  id="btnClearStorage">Exclua todos os itens em LOCAL STORAGE</button>
-        <button id="downloadButton">Descargar CSV</button>
-        
-    </div>
-
   </main> 
 </body>
 </html>
