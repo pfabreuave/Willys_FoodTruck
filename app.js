@@ -626,12 +626,14 @@ if (lastComandaNumber === 0) {
 } else {
         // Si hay un pedido en el Local Storage, incrementar el número de comanda para la nueva comanda
         lastComandaNumber += 1;
+        //localStorage.setItem("lastComanda", lastComandaNumber)
         totalElement.innerHTML = '';
         acumulador = 0;
     }
 
 // Mostrar el número de comanda en el campo de input
 comandElement.textContent = ("("+ lastComandaNumber + ")");
+//comandaInput.value = lastComandaNumber;
 
 // Manejar el evento change del elemento select
 selectElement.addEventListener("change", function() {
@@ -642,6 +644,7 @@ selectElement.addEventListener("change", function() {
   const selectedItem = foodItem.find(item => item.id === selectedId);
 
   // Obtén el valor de la comanda desde el input
+  //const comanda = parseInt(comandaInput.value);
   const comanda = parseInt(lastComandaNumber);
 
   // Agrega la comanda al elemento seleccionado
@@ -729,6 +732,8 @@ salvarButton.addEventListener("click", function() {
   totalElement.innerHTML = '';
   acumulador = 0;
 
+  // Aviso para el usuario de que la comanda actual ha sido cerrada y se puede comenzar una nueva
+  // alert("Comanda ha sido salvada. Puedes comenzar una nueva comanda.");
   location.reload();  
 });
 
@@ -757,9 +762,10 @@ function clearStorage() {
   
       // Limpia los campos de entrada
       Comanda.value = 0;
-      lastComandaNumber = 0;
-      comandElement = 0;
+      //comandaInput.value = 0;
       numeroComanda = 0;
+      location.reload();
+  
     }
   }
 
