@@ -660,7 +660,8 @@ selectElement.addEventListener("change", function() {
     <td>${selectedItem.name}</td>
     <td><input type="number" class="inputField cantidadInput" style="width:40px;"></td>
     <td>R$${selectedItem.price.toFixed(2)}</td>
-    <td><button class="deleteButton"><i class='bx bx-trash'></button></td> <!-- Botón de eliminar -->
+    <td><button class="deleteButton" title="!-- Botón de eliminar --"><i class='bx bx-trash'></button></td> <!-- Botón de eliminar -->
+
   `;
   
   // Después de agregar la nueva fila a la tabla
