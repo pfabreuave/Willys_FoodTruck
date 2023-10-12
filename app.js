@@ -658,15 +658,30 @@ selectElement.addEventListener("change", function() {
     <td><img src="${selectedItem.img}" alt="Imagen del artículo seleccionado" style="width: 50px; height: 50px;"></td>
     <td>${selectedItem.id}</td>
     <td>${selectedItem.name}</td>
+    <td><input type="number" class="inputField cantidadInput" style="width:40px;"></td>
     <td>R$${selectedItem.price.toFixed(2)}</td>
     <td><button class="deleteButton"><i class='bx bx-trash'></button></td> <!-- Botón de eliminar -->
   `;
-
+  
+  // Después de agregar la nueva fila a la tabla
+  const cantidadInput = newRow.querySelector('.cantidadInput');
+  
+  cantidadInput.addEventListener('change', function() {
+      const cantidad = parseInt(cantidadInput.value);
+      const precioTotal = selectedItem.price * cantidad;
+      // Actualizar el precio en la fila
+      newRow.querySelector('td:nth-child(5)').textContent = `R$${precioTotal.toFixed(2)}`;
+      
+      // Guardar el objeto en el localStorage
+      saveToLocalStorage(selectedItem, cantidad, precioTotal);
+  });
+  
+  
+    
   // Agregar la nueva fila a la tabla
   selectedItemsTableBody.appendChild(newRow);
 
   // Guardar los pedidos en el Local Storage
-  saveToLocalStorage(selectedItem);
   // Guardar el número de comanda actualizado en el Local Storage
   localStorage.setItem("lastComanda", lastComandaNumber);
   acumulador = acumulador + selectedItem.price
@@ -711,16 +726,21 @@ selectElement.addEventListener("change", function() {
 });
 
 // Función para guardar en Local Storage
-function saveToLocalStorage(item) {
-  // Obtén los pedidos existentes del Local Storage o crea un array vacío si no hay pedidos
-  const orders = JSON.parse(localStorage.getItem("orders")) || [];
-
-  // Agrega el nuevo pedido al array
-  orders.push(item);
-
-  // Guarda el array actualizado en el Local Storage
-  localStorage.setItem("orders", JSON.stringify(orders));
-}
+function saveToLocalStorage(item, cantidad, precioTotal) {
+    // Obtén los pedidos existentes del Local Storage o crea un array vacío si no hay pedidos
+    const orders = JSON.parse(localStorage.getItem("orders")) || [];
+  
+    // Agrega la cantidad y el precioTotal al objeto del pedido
+    item.cantidad = cantidad;
+    item.precioTotal = precioTotal;
+  
+    // Agrega el nuevo pedido al array
+    orders.push(item);
+  
+    // Guarda el array actualizado en el Local Storage
+    localStorage.setItem("orders", JSON.stringify(orders));
+  }
+  
 
 // Obtén una referencia al botón "salvar" en tu HTML
 const salvarButton = document.getElementById("btnCer");

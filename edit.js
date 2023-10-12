@@ -30,17 +30,17 @@ document.addEventListener("DOMContentLoaded", function() {
         <td><img src="${item.img}" alt="Imagen del artículo seleccionado" style="width: 50px; height: 50px;"></td>
         <td>${item.id}</td>
         <td>${item.name}</td>
-        <td>R$${item.price.toFixed(2)}</td>
+        <td>${item.cantidad}</td>
+        <td>R$${item.precioTotal.toFixed(2)}</td>
         <td><button class="deleteButton"><i class="bx bxs-chevron-up-circle"></button></td> <!-- Botón de eliminar -->
       `;
 
       // Agregar la nueva fila a la tabla
       selectedItemsTableBody.appendChild(newRow);
 
-      acumulador = acumulador + item.price
-      acumulaItems = acumulaItems + 1
+      acumulador = acumulador + item.precioTotal
+      acumulaItems = acumulaItems + item.cantidad
     });
-
     totalElement.innerHTML = acumulador.toFixed(2);
     cantItemElement.innerHTML = acumulaItems;
 

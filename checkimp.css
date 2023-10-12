@@ -52,8 +52,10 @@ button {
     margin-left: 40px;
  }
 
-.comand{
+ .comand{
     font-size: 14px;
+    font-weight: bold;
+
 }
 
 @media print {

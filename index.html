@@ -20,7 +20,7 @@
     
 
     <h2>Comanda
-      <span style="font-weight: bold;" class="comand" id="comand"></span>
+      <span class="comand" id="comand"></span>
       <a href="edit.html" target="_blank">
         <button id="btnEdi">Editar</button> 
       </a>
@@ -30,11 +30,12 @@
       </a> 
     </h2>
 
-    <div class="newItem" style="display: flex; flex-direction: row;">
-      <div style="flex: 1;">
+    <div class="newItem">
+      <div class="sel1">
+        <label for="miSelect">MiSelect:</label>
         <select   id="miSelect"></select>
       </div>
-      <div style="flex: 1; font-size: 30px;">
+      <div class="tot1">
         Total: R$
         <span class="total">0.00</span>
       </div>
@@ -47,6 +48,7 @@
               <th>Imagen</th>
               <th>ID</th>
               <th>Nombre</th>
+              <th>Cant</th>
               <th>Precio</th>
               <th class="columnAction"></th> <!-- Nueva columna para el botón de eliminar -->
             </tr>

@@ -23,12 +23,12 @@ function generarFactura(comanda) {
     const seleccion = comanda.filter((item) => item.comanda == numeroComanda);
     
     seleccion.forEach((item) => {
-        const precioTotalItem = item.price * item.quantity;
-        cant_items += item.quantity
-        total += precioTotalItem;
+        // const precioTotalItem = item.price * item.quantity;
+        cant_items += item.cantidad
+        total += item.precioTotal;
         document.getElementById("tabla").innerHTML +=
-					'<tr><td>'+item.quantity+'</td><td>'
-					+item.name+'</td><td style="text-align: right;">'+item.price.toFixed(2)+'</td></tr>'	
+					'<tr><td>'+item.cantidad+'</td><td>'
+					+item.name+'</td><td style="text-align: right;">'+item.precioTotal.toFixed(2)+'</td></tr>'	
         
     });
         console.log("total " + total)
@@ -36,7 +36,6 @@ function generarFactura(comanda) {
                     '<tr style="font-weight: bold;" ><td>'+cant_items+'</td><td>'
                     +"TOTAL"+'</td><td style="text-align: right;">'+total.toFixed(2)+'</td></tr>'
 }
-
 // Llamar a la función para generar la factura usando la comanda obtenida del Local Storage
 generarFactura(numeroComanda);
 })
