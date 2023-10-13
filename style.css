@@ -20,7 +20,12 @@ input[type=number] {
 .sel1 {
   flex: 1;
   
+  
 } 
+
+select {
+  font-size: 29px;
+}
 
 .tot1 {
   flex: 1;
@@ -179,7 +184,8 @@ table {
 }
 
 th, td {
-  padding: 15px;
+  padding: 10px;
+  font-size: 20px;
  
 }
 
