@@ -31,7 +31,6 @@ function generarFactura(comanda) {
 					+item.name+'</td><td style="text-align: right;">'+item.precioTotal.toFixed(2)+'</td></tr>'	
         
     });
-        console.log("total " + total)
         document.getElementById("tabla").innerHTML +=
                     '<tr style="font-weight: bold;" ><td>'+cant_items+'</td><td>'
                     +"TOTAL"+'</td><td style="text-align: right;">'+total.toFixed(2)+'</td></tr>'

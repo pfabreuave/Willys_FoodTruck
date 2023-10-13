@@ -18,7 +18,7 @@
       FoodTruck WILLY´S
     </h1>
     
-
+<!--     
     <h2>Comanda
       <span class="comand" id="comand"></span>
       <a href="edit.html" target="_blank">
@@ -28,16 +28,34 @@
       <a href="checkimp.html" target="_blank">
         <button id="Check">Checkout</button>
       </a> 
+    </h2> -->
+
+    
+    <h2>Comanda
+      <span class="comand" id="comand"></span>
     </h2>
+    <div class="tot1">
+      Items:
+      <span class="cantItems"></span>
+      Total: R$
+      <span class="total">0.00</span>
+    </div>
 
     <div class="newItem">
       <div class="sel1">
         <label for="miSelect"></label>
         <select  id="miSelect"></select>
-      </div>
-      <div class="tot1">
-        Total: R$
-        <span class="total">0.00</span>
+        
+          <a href="edit.html" target="_blank">
+            <button class="button-56" id="btnEdi">Editar</button> 
+          </a>
+          <a>
+            <button class="button-56" id="btnCer">Salvar</button>
+          </a>
+          <a href="checkimp.html" target="_blank">
+            <button class="button-56" id="Check">Checkout</button>
+          </a> 
+
       </div>
     </div>
     <div id="main-container" class="selectedItem">
@@ -55,10 +73,13 @@
           <tbody id="selectedItemsTableBody"></tbody>
         </table>
     </div>
-    <div class="setItem">
-        <button  id="btnClearStorage">Exclua todos os itens em LOCAL STORAGE</button>
-        <button id="downloadButton">Descargar CSV</button>
+    <div>
+        <button class="button-56" role="button" id="btnClearStorage">Exclua todos os itens em LOCAL STORAGE</button>
+        <button class="button-56" role="button" id="downloadButton">Descargar CSV</button>
     </div>
   </main> 
 </body>
 </html>
+
+<!-- HTML !-->
+<!-- <button class="button-56" role="button">Button 56</button> -->

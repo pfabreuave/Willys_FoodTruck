@@ -592,6 +592,7 @@ const foodItem= [
 
 
 var acumulador = 0;
+var item_acumulador = 0;
 var comandElement = document.getElementById("comand");
 const btnClearStorage = document.querySelector("#btnClearStorage"); // botón para eliminar todos los registros
 btnClearStorage.addEventListener("click", () => {
@@ -600,6 +601,7 @@ btnClearStorage.addEventListener("click", () => {
   });
 // Obtén una referencia al elemento con la clase "total" en tu HTML
 const totalElement = document.querySelector(".total");
+const cantItemsElement = document.querySelector(".cantItems");
 
 // Obtén una referencia al elemento select en tu HTML
 const selectElement = document.getElementById("miSelect");
@@ -628,7 +630,9 @@ if (lastComandaNumber === 0) {
         lastComandaNumber += 1;
         //localStorage.setItem("lastComanda", lastComandaNumber)
         totalElement.innerHTML = '';
+        cantItemsElement.innerHTML = '';
         acumulador = 0;
+        item_acumulador = 0;
     }
 
 // Mostrar el número de comanda en el campo de input
@@ -672,7 +676,12 @@ selectElement.addEventListener("change", function() {
       const precioTotal = selectedItem.price * cantidad;
       // Actualizar el precio en la fila
       newRow.querySelector('td:nth-child(5)').textContent = `R$${precioTotal.toFixed(2)}`;
-      
+
+      acumulador = acumulador + precioTotal
+      item_acumulador = item_acumulador + cantidad
+      totalElement.innerHTML = acumulador.toFixed(2);
+      cantItemsElement.innerHTML = item_acumulador;
+
       // Guardar el objeto en el localStorage
       saveToLocalStorage(selectedItem, cantidad, precioTotal);
   });
@@ -685,8 +694,6 @@ selectElement.addEventListener("change", function() {
   // Guardar los pedidos en el Local Storage
   // Guardar el número de comanda actualizado en el Local Storage
   localStorage.setItem("lastComanda", lastComandaNumber);
-  acumulador = acumulador + selectedItem.price
-  totalElement.innerHTML = acumulador.toFixed(2);
 
   // ...
 
@@ -697,8 +704,11 @@ selectElement.addEventListener("change", function() {
 
     // Obtener el ID del artículo a eliminar
     const itemId = selectedItem.id;
-    acumulador = acumulador - selectedItem.price
+
+    acumulador = acumulador - selectedItem.precioTotal
     totalElement.innerHTML = acumulador.toFixed(2);
+    item_acumulador = item_acumulador - selectedItem.cantidad
+    cantItemsElement.innerHTML = item_acumulador;
 
     // Eliminar el artículo del Local Storage
     removeFromLocalStorage(itemId);
@@ -751,7 +761,9 @@ salvarButton.addEventListener("click", function() {
   // Limpiar la tabla de productos seleccionados en la comanda
   selectedItemsTableBody.innerHTML = '';
   totalElement.innerHTML = '';
+  cantItemsElement.innerHTML = '';
   acumulador = 0;
+  item_acumulador = 0;
 
   // Aviso para el usuario de que la comanda actual ha sido cerrada y se puede comenzar una nueva
   // alert("Comanda ha sido salvada. Puedes comenzar una nueva comanda.");
@@ -777,8 +789,10 @@ function clearStorage() {
   
       // Actualiza los totales para reflejar que no hay registros
       acumulador = 0;
+      item_acumulador = 0;
       lastComandaNumber = 0;
       totalElement.innerHTML = "";
+      cantItemsElement.innerHTML = "";
       total.innerHTML = "0.00";
   
       // Limpia los campos de entrada
