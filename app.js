@@ -662,7 +662,7 @@ selectElement.addEventListener("change", function() {
     <td><img src="${selectedItem.img}" alt="Imagen del artículo seleccionado" style="width: 50px; height: 50px;"></td>
     <td>${selectedItem.id}</td>
     <td>${selectedItem.name}</td>
-    <td><input type="number" class="inputField cantidadInput" style="width:40px;"></td>
+    <td><input autofocus type="number" class="inputField cantidadInput" style="width:40px;"></td>
     <td>R$${selectedItem.price.toFixed(2)}</td>
     <td><button class="deleteButton" title="!-- Botón de eliminar --"><i class='bx bx-trash'></button></td> <!-- Botón de eliminar -->
 
