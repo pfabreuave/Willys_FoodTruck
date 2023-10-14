@@ -32,6 +32,12 @@ select {
   font-size: 30px;
 }
 
+.marbut {
+
+  margin-bottom: 10px;
+
+}
+
 
 .comand{
   
@@ -145,7 +151,6 @@ main {
   width: 100%;
   justify-content: center;
   flex-wrap: wrap;
-  
 }
 
 .divDesc, .divType, .divAmount {
