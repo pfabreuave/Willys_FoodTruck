@@ -1,9 +1,12 @@
+
+var numeroComanda
 document.addEventListener("DOMContentLoaded", function() {
-var numeroComanda = prompt("indique la comanda a imprimir: ")
+// var numeroComanda = prompt("indique la comanda a imprimir: ")
     
-while (numeroComanda == null || /\D/.test(numeroComanda) || numeroComanda == "") {
-    numeroComanda = prompt("Entre un valor VÁLIDO: ");
-};
+// while (numeroComanda == null || /\D/.test(numeroComanda) || numeroComanda == "") {
+//     numeroComanda = prompt("Entre un valor VÁLIDO: ");
+// };
+numeroComanda = varComanda
 var fechaElement = document.getElementById("fecha");
 var comandElement = document.getElementById("comand");
 

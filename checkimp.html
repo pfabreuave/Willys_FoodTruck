@@ -6,6 +6,13 @@
     <link rel="shortcut icon" href="willyC.ico" type="image/x-icon">
     <link rel="stylesheet" href="checkimp.css"> <script src="checkimp.js"></script>
     <title>Factura</title>
+
+    <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const varComanda = urlParams.get('numeroComanda');
+    </script>
+    
    
 </head>
 <body>

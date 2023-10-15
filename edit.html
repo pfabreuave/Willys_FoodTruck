@@ -9,32 +9,44 @@
   <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
   <title>FoodTruck</title>
 </head>
+
+<script>
+  function enviarComanda() {
+      var numeroComanda = numeroComanda2;
+      window.open("checkimp.html?numeroComanda=" + numeroComanda, "_blank");
+  }
+</script>
+
+
 <body>
   <main>
     <img class="imasal" src="willyC.png" alt="Logotipo de WILLY´S ">
     <h1>
       FoodTruck WILLY´S
     </h1>
-
       <h2>Comanda
-        <span class="comand" id="comand"></span>
+        <input autofocus type="text" class="numeroComandaInput" >
+        <button class="button-74">Enviar</button>
       </h2>
+      
       <div class="tot1">
+        Comanda:
+        <span class="comand"></span>
         Items:
         <span class="cantItems"></span>
         Total: R$
         <span class="total">0.00</span>
       </div>
-    </div>
+    <!-- </div> -->
 
     <div class="marbut">
-      <a href="edit.html" target="_blank">
+      <!-- <a href="edit.html" target="_blank">
         <button class="button-74" id="btnEdi" onclick="location.reload()">Editar</button> 
-      </a>
+      </a> -->
      
-      <a href="checkimp.html" target="_blank">
+      <a href="#" onclick="enviarComanda();">
         <button class="button-74" id="Check">Check</button>
-      </a> 
+      </a>
     </div>
 
     
