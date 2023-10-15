@@ -611,7 +611,7 @@ const comandaInput = document.getElementById("Comanda");
 for (let i = 0; i < foodItem.length; i++) {
   const option = document.createElement("option");
   option.value = foodItem[i].id; // Usar el id como el valor de la opción
-  option.text = foodItem[i].name + ' ' + foodItem[i].price +'Rs'; // Usar el nombre como el texto de la opción
+  option.text = foodItem[i].id + '-' + foodItem[i].name + ' ' + foodItem[i].price +'Rs'; // Usar el nombre como el texto de la opción
   selectElement.appendChild(option);
 }
 
