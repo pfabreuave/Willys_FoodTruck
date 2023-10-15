@@ -658,8 +658,9 @@ selectElement.addEventListener("change", function() {
   
   
   const newRow = document.createElement("tr");
+  
   newRow.innerHTML = `
-    <td><input autofocus type="number" class="inputField cantidadInput" style="width:40px;"></td>
+    <td><input type="number" class="inputField cantidadInput" style="width:40px;"></td>
     <td><img src="${selectedItem.img}" alt="Imagen del artículo seleccionado" style="width: 50px; height: 50px;"></td>
     <td>${selectedItem.id}</td>
     <td>${selectedItem.name}</td>
@@ -667,7 +668,7 @@ selectElement.addEventListener("change", function() {
     <td><button class="deleteButton" title="!-- Botón de eliminar --"><i class='bx bx-trash'></button></td> <!-- Botón de eliminar -->
 
   `;
-  
+
   // Después de agregar la nueva fila a la tabla
   const cantidadInput = newRow.querySelector('.cantidadInput');
   
