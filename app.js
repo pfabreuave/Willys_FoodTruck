@@ -1,7 +1,7 @@
 const foodItem= [
     {
         id: 0,
-        name: 'Haga su Pedido - Hay de todo',
+        name: 'Faça seu pedido - Tem de tudo',
         category : ' ',
         rating : 4.3,
         price: "",
@@ -660,8 +660,8 @@ selectElement.addEventListener("change", function() {
   const newRow = document.createElement("tr");
   
   newRow.innerHTML = `
-    <td><input type="number" class="inputField cantidadInput" style="width:40px;"></td>
-    <td><img src="${selectedItem.img}" alt="Imagen del artículo seleccionado" style="width: 50px; height: 50px;"></td>
+    <td><input type="number" class="inputField cantidadInput" style="width:30px;"></td>
+    <td><img src="${selectedItem.img}" alt="Imagen del artículo seleccionado" style="width: 40px; height: 40px;"></td>
     <td>${selectedItem.id}</td>
     <td>${selectedItem.name}</td>
     <td>R$${selectedItem.price.toFixed(2)}</td>
