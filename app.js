@@ -671,8 +671,9 @@ selectElement.addEventListener("change", function() {
 
   // Después de agregar la nueva fila a la tabla
   const cantidadInput = newRow.querySelector('.cantidadInput');
-  
+  cantidadInput.disabled = false;
   cantidadInput.addEventListener('change', function() {
+    
       const cantidad = parseInt(cantidadInput.value);
       const precioTotal = selectedItem.price * cantidad;
       // Actualizar el precio en la fila
@@ -685,6 +686,9 @@ selectElement.addEventListener("change", function() {
 
       // Guardar el objeto en el localStorage
       saveToLocalStorage(selectedItem, cantidad, precioTotal);
+      // Deshabilitar el campo de entrada después de agregar la fila a la tabla
+      cantidadInput.disabled = true;
+
   });
   
   
@@ -766,8 +770,6 @@ salvarButton.addEventListener("click", function() {
   acumulador = 0;
   item_acumulador = 0;
 
-  // Aviso para el usuario de que la comanda actual ha sido cerrada y se puede comenzar una nueva
-  // alert("Comanda ha sido salvada. Puedes comenzar una nueva comanda.");
   location.reload();  
 });
 
@@ -780,7 +782,7 @@ salvarButton.addEventListener("click", function() {
 */
 
 function clearStorage() {
-    if (confirm("¿Seguro deseas ELIMINAR todos los registros, no quiero LLORADERA?")) {
+    if (confirm("¿Você deseja EXCLUIR todos os registros?, não quero LLORADERA")) {
       // Borra los datos almacenados en localStorage
       localStorage.removeItem("orders");
       localStorage.removeItem("lastComanda");
