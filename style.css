@@ -17,6 +17,11 @@ input[type=number] {
   --moz-appearance:textfield;
 }
 
+
+#miSelect {
+  width: 100%;
+}
+
 .sel1 {
   flex: 1;
 
