@@ -41,7 +41,7 @@ select {
 
 .tot1 {
   flex: 1;
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .marbut {
@@ -375,7 +375,7 @@ border-radius: 50%;
   font-weight: 800;
   font-size: 16px;
   padding: 0 16px;
-  line-height: 30px;
+  line-height: 25px;
   text-align: center;
   text-decoration: none;
   user-select: none;
