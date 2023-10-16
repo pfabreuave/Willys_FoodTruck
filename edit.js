@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
           <td>${item.id}</td>
           <td>${item.name}</td>
           <td>R$${item.precioTotal.toFixed(2)}</td>
-          <td><button class="deleteButton" title="!-- Botón de eliminar --"><i class="bx bxs-chevron-up-circle"></button></td> <!-- Botón de eliminar -->
+          <td><button class="cambiosButton" title="!-- Botón de eliminar --"><i class="bx bxs-chevron-up-circle"></button></td> <!-- Botón de eliminar -->
         `;
   
         // Agregar la nueva fila a la tabla
