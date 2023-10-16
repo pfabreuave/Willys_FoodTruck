@@ -39,10 +39,10 @@ document.addEventListener("DOMContentLoaded", function() {
       seleccion.forEach((item) => {
         const newRow = document.createElement("tr");
         newRow.innerHTML = `
+          <td>${item.cantidad}</td>
           <td><img src="${item.img}" alt="Imagen del artículo seleccionado" style="width: 50px; height: 50px;"></td>
           <td>${item.id}</td>
           <td>${item.name}</td>
-          <td>${item.cantidad}</td>
           <td>R$${item.precioTotal.toFixed(2)}</td>
           <td><button class="deleteButton" title="!-- Botón de eliminar --"><i class="bx bxs-chevron-up-circle"></button></td> <!-- Botón de eliminar -->
         `;
