@@ -595,10 +595,12 @@ var acumulador = 0;
 var item_acumulador = 0;
 var comandElement = document.getElementById("comand");
 const btnClearStorage = document.querySelector("#btnClearStorage"); // botón para eliminar todos los registros
+
 btnClearStorage.addEventListener("click", () => {
     // Llama a una función para eliminar los datos almacenados
     clearStorage();
   });
+
 // Obtén una referencia al elemento con la clase "total" en tu HTML
 const totalElement = document.querySelector(".total");
 const cantItemsElement = document.querySelector(".cantItems");
@@ -691,16 +693,12 @@ selectElement.addEventListener("change", function() {
 
   });
   
-  
-    
   // Agregar la nueva fila a la tabla
   selectedItemsTableBody.appendChild(newRow);
 
   // Guardar los pedidos en el Local Storage
   // Guardar el número de comanda actualizado en el Local Storage
   localStorage.setItem("lastComanda", lastComandaNumber);
-
-  // ...
 
   // Manejar el evento de clic del botón de eliminar
   const deleteButton = newRow.querySelector(".deleteButton");
@@ -718,7 +716,6 @@ selectElement.addEventListener("change", function() {
     // Eliminar el artículo del Local Storage
     removeFromLocalStorage(itemId);
     
-
   });
 
   // Función para eliminar un artículo del Local Storage
@@ -757,7 +754,6 @@ function saveToLocalStorage(item, cantidad, precioTotal) {
     localStorage.setItem("orders", JSON.stringify(orders));
   }
   
-
 // Obtén una referencia al botón "salvar" en tu HTML
 const salvarButton = document.getElementById("btnCer");
 
@@ -806,5 +802,3 @@ function clearStorage() {
   
     }
   }
-
-

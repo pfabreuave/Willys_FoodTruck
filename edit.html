@@ -10,13 +10,12 @@
   <title>FoodTruck</title>
   
   <script>
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const varComanda = urlParams.get('resumenComanda');
-    console.log("varComanda en edit.html " + varComanda)
+    document.addEventListener('DOMContentLoaded', function() {
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const comandaNumber = urlParams.get('comanda');
+    });
   </script>
-  
-
 
 </head>
 
@@ -27,39 +26,32 @@
   }
 </script>
 
-
 <body>
   <main>
     <img class="imasal" src="willyC.png" alt="Logotipo de WILLY´S ">
     <h1>
       FoodTruck WILLY´S
     </h1>
-      <h2>Comanda
-        <input autofocus type="text" class="numeroComandaInput" >
-        <button class="button-74">Enviar</button>
-      </h2>
-      
-      <div class="tot1">
-        Comanda:
-        <span class="comand"></span>
-        Items:
-        <span class="cantItems"></span>
-        Total: R$
-        <span class="total">0.00</span>
-      </div>
-    <!-- </div> -->
+    <h2>Comanda
+      <input autofocus type="text" class="numeroComandaInput" >
+      <button class="button-74">Enviar</button>
+    </h2>
+    
+    <div class="tot1">
+      Comanda:
+      <span class="comand"></span>
+      Items:
+      <span class="cantItems"></span>
+      Total: R$
+      <span class="total">0.00</span>
+    </div>
 
     <div class="marbut">
-      <!-- <a href="edit.html" target="_blank">
-        <button class="button-74" id="btnEdi" onclick="location.reload()">Editar</button> 
-      </a> -->
-     
       <a href="#" onclick="enviarComanda();">
         <button class="button-74" id="Check">Check</button>
       </a>
     </div>
 
-    
     <div id="main-container" class="selectedItem">
         <table>
           <thead>
