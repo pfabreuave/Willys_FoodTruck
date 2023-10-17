@@ -44,6 +44,11 @@ select {
   font-size: 20px;
 }
 
+.tot2 {
+  flex: 1;
+  font-size: 16px;
+}
+
 .marbut {
 
   margin-bottom: 10px;

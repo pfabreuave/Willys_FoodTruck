@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css"> <script src="comanda.js"></script>
+  <link rel="shortcut icon" href="willyC.ico" type="image/x-icon">
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+  <title>FoodTruck</title>
+
+<script>
+    function enviarComanda() {
+      
+      var resumenComanda = resComanda; // Usar el valor obtenido de la URL
+      
+      window.open("edit.html?numeroComanda=" + resumenComanda, "_blank");
+    //   window.location.href = `edit.html?comanda=${resumenComanda}`;
+    }
+</script>
+  
+</head>
+
+
+<body>
+  <main>
+    <img class="imasal" src="willyC.png" alt="Logotipo de WILLY´S ">
+    <h1>
+      FoodTruck WILLY´S
+    </h1>
+    <div class="tot2">
+    Comandas:
+    <span class="TotalComandas"></span>    
+    Items:
+    <span class="TotalItems"></span>
+    Total:
+    <span class="totalFacturado">0.00</span>
+    </div>
+    <!-- </div> -->
+
+    <div class="selectedItem">
+        <table>
+          <thead>
+            <tr>
+              <th>Comanda</th>
+              <th>Items</th>
+              <th>Total</th>
+              <th>Editar</th> <!-- botón para pedir detalles -->
+            </tr>
+          </thead>
+          <tbody id="selectedItemsTableBody"></tbody>
+        </table>
+    </div>
+  </main> 
+</body>
+</html>
