@@ -51,9 +51,8 @@ for (const comandaNumber in ordersByComanda) {
       <td>${comandaNumber}</td>
       <td>${orderInfo.cantidad}</td>
       <td>R$${orderInfo.precioTotal.toFixed(2)}</td>
-      <td href="#" onclick="enviarComanda();" class="columnAction"><button class="editaButton" title="Edita comanda"><i class="bx bxs-chevron-up-circle"></button></td>
+      <td class="columnAction"><button class="editaButton" title="Edita comanda"><i class="bx bxs-chevron-up-circle"></button></td>
     `;
-
 
 
     selectedItemsTableBody.appendChild(newRow);
