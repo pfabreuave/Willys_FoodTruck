@@ -11,6 +11,15 @@
   <link rel="stylesheet" href="style.css">
   <title>FoodTruck</title>
 </head>
+
+
+<script>
+  function enviarComanda() {
+      var numeroComanda = numeroComanda2;
+      window.open("checkimp.html?numeroComanda=" + numeroComanda, "_blank");
+  }
+</script>
+
 <body>
   <main>
     <img class="imasal" src="willyC.png" alt="Logotipo WILLY´S ">
@@ -21,23 +30,32 @@
     <h2>Comanda
       <span class="comand" id="comand"></span>
     </h2>
+
     <div class="tot1">
       Items:
       <span class="cantItems"></span>
       Total: R$
       <span class="total">0.00</span>
     </div>
+
+    <div>
+      
+      <a>
+        <button class="button-74" id="btnCer">Proximo</button>
+      </a>
+      
+    </div>
+
     <div>
       <a href="edit.html" target="_blank">
         <button class="button-74" id="btnEdi">Editar</button> 
       </a>
-      <a>
-        <button class="button-74" id="btnCer">Salvar</button>
+      <a href="#" onclick="enviarComanda();">
+        <button class="button-74" id="Check">Ordenar</button>
       </a>
       <a href="comanda.html" target="_blank">
         <button class="button-74" id="resCom">Comandas</button>
       </a> 
-      
     </div>
 
     <div class="newItem">
@@ -62,9 +80,10 @@
           <tbody id="selectedItemsTableBody"></tbody>
         </table>
     </div>
+    
     <div>
         <button class="button-74" role="button" id="btnClearStorage">Remover L/S</button>
-        <button class="button-74" role="button" id="downloadButton">Salvar CSV</button>
+        <button class="button-74" role="button" id="exportCSVButton">Salvar CSV</button>
     </div>
   </main> 
 </body>

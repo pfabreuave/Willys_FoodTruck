@@ -1,5 +1,7 @@
 
 var numeroComanda
+// let fileName = navigator.hardwareConcurrency
+// console.log(fileName)
 document.addEventListener("DOMContentLoaded", function() {
 // var numeroComanda = prompt("indique la comanda a imprimir: ")
     

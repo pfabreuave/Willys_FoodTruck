@@ -22,8 +22,6 @@ document.addEventListener("DOMContentLoaded", function() {
       procesaComanda()
     
     });
-    // Resto de tu código para procesar la comanda
-    // ...
 
       function procesaComanda() {
             const totalElement = document.querySelector(".total");
@@ -42,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function() {
         
             // Mostrar los productos de la comanda en la tabla
         
-            const comanda = JSON.parse(localStorage.getItem("orders")) || [];
+            comanda = JSON.parse(localStorage.getItem("orders")) || [];
             
             const seleccion = comanda.filter((item) => item.comanda == numeroComanda);
             seleccion.forEach((item) => {
@@ -50,10 +48,10 @@ document.addEventListener("DOMContentLoaded", function() {
               newRow.innerHTML = `
                 <td>${item.cantidad}</td>
                 <td><img src="${item.img}" alt="Imagen del artículo seleccionado" style="width: 50px; height: 50px;"></td>
-                <td>${item.id}</td>
+                <td>${item.id}${item.secuencia}</td>
                 <td>${item.name}</td>
                 <td>R$${item.precioTotal.toFixed(2)}</td>
-                <td><button class="cambiosButton" title="!-- Botón de eliminar --"><i class="bx bxs-chevron-up-circle"></button></td> <!-- Botón de eliminar -->
+                <td><button class="agregarButton" title="!-- Botón de agregar --"><i class="bx bxs-chevron-up-circle"></button></td> <!-- Botón de notas -->
               `;
         
               // Agregar la nueva fila a la tabla
@@ -69,3 +67,5 @@ document.addEventListener("DOMContentLoaded", function() {
             numeroComandaInput.focus();
       }
 });
+
+
