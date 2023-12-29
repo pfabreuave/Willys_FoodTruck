@@ -596,7 +596,6 @@ var secuencia = 0;
 var item_acumulador = 0;
 var lastComandaNumber;
 var dispositivo = navigator.hardwareConcurrency
-// const exportCSVButton = document.getElementById("exportCSVButton");
 var comandElement = document.getElementById("comand");
 const btnClearStorage = document.querySelector("#btnClearStorage"); // botón para eliminar todos los registros
 
