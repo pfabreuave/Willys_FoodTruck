@@ -8,15 +8,6 @@
   <link rel="shortcut icon" href="willyC.ico" type="image/x-icon">
   <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
   <title>Edita CMD</title>
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const queryString = window.location.search;
-      const urlParams = new URLSearchParams(queryString);
-      const comandaNumber = urlParams.get('comanda');
-    });
-  </script>
-
 </head>
 
 <script>
@@ -28,27 +19,23 @@
 
 <body>
   <main>
-    <img class="imasal" src="willyC.png" alt="Logotipo de WILLY´S ">
-    <h1>
+    <img class="imag" src="willyC.png" alt="Logotipo WILLY´S ">
+    <h2>
       FoodTruck WILLY´S
-    </h1>
-    <h2>Comanda
-      <input autofocus type="text" class="numeroComandaInput" >
-      <button class="button-74">Enviar</button>
     </h2>
-    
-    <div class="tot1">
+      
+    <h4>
       Comanda:
       <span class="comand"></span>
       Items:
       <span class="cantItems"></span>
       Total: R$
       <span class="total">0.00</span>
-    </div>
+    </h4>
 
     <div class="marbut">
       <a href="#" onclick="enviarComanda();">
-        <button class="button-74" id="Check">Checkout</button>
+        <button class="button-74" id="Check">Factura</button>
       </a>
     </div>
 
@@ -56,12 +43,11 @@
         <table>
           <thead>
             <tr>
-              <th>Cant</th>
-              <th>Img</th>
+              <th>Quant</th>
+              <th>Imagen</th>
               <th>ID</th>
               <th>Nome</th>
               <th>Preço</th>
-              <th class="columnAction"></th> <!-- botón para comentarios en comanda-->
             </tr>
           </thead>
           <tbody id="selectedItemsTableBody"></tbody>

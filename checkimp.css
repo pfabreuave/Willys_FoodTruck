@@ -85,3 +85,30 @@ button {
         display: none !important;
     }
 }
+
+.ticket {
+    width: 155px;
+    max-width: 155px;
+}
+
+img {
+    max-width: inherit;
+    width: inherit;
+}
+button {
+    margin-top: 8px;
+    margin-left: 40px;
+ }
+
+ .comand{
+    font-size: 14px;
+    font-weight: bold;
+
+}
+
+@media print {
+    .oculto-impresion,
+    .oculto-impresion * {
+        display: none !important;
+    }
+}

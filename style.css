@@ -19,7 +19,11 @@ input[type=number] {
 
 
 #miSelect {
-  width: 100%;
+width: 100%;
+}
+
+#selectedItemsTableBody {
+width: 100%;
 }
 
 .sel1 {
@@ -29,24 +33,19 @@ input[type=number] {
 
 .numeroComandaInput {
 
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   width:40px
 
 }
 
 select {
-  font-size: 16px;
+  font-size: 29px;
 }
 
 .tot1 {
   flex: 1;
-  font-size: 20px;
-}
-
-.tot2 {
-  flex: 1;
-  font-size: 16px;
+  font-size: 30px;
 }
 
 .marbut {
@@ -66,21 +65,21 @@ table {
   width: 100%;
 }
 
-@media screen and (max-width: 370px) {
-  #main-container #miSelect {
+@media (max-width: 370px) {
+  #main-container {
       width: 90%; 
   }
 }
 
 
-@media screen and (max-width: 768px) {
-  #main-container #miSelect {
+@media (max-width: 768px) {
+  #main-container {
       width: 80%; 
   }
 }
 
-@media screen and (max-width: 992px) {
-  #main-container #miSelect {
+@media (max-width: 992px) {
+  #main-container {
       width: 70%; 
   }
 }
@@ -99,7 +98,7 @@ body {
 
 #main-container {
   width: 100%; 
-  max-width: 100%; 
+    max-width: 100%;  
 }
 
 main {
@@ -208,8 +207,8 @@ table {
 }
 
 th, td {
-  padding: 10px;
-  font-size: 14px;
+  padding: 5px;
+  font-size: 17px;
  
 }
 
@@ -321,11 +320,26 @@ border-radius: 50%;
 }
 
 .imasal {
-  max-width: 15%;
+  max-width: 10%;
   border-radius: 100%;
   display:block;
   margin:auto;
   } 
+
+.imag {
+  max-width: 22%;
+  border-radius: 50%;
+  display:block;
+  margin-bottom: 0%;
+  } 
+  
+.zoom {
+  transition: transform .2s; 
+}
+ 
+.zoom:hover {
+  transform: scale(2.5); 
+}
 
 
 
@@ -365,11 +379,13 @@ border-radius: 50%;
 
 /* https://getcssscan.com/css-buttons-examples */
 
+
 /* <button class="button-74" role="button">Button 74</button> */
 
 /* CSS */
 .button-74 {
-  margin-top: 5%;
+  margin-top: 2%;
+  margin-bottom: 1%;
   background-color: #fbeee0;
   border: 2px solid #422800;
   border-radius: 20px;
@@ -377,10 +393,10 @@ border-radius: 50%;
   color: #422800;
   cursor: pointer;
   display: inline-block;
-  font-weight: 800;
-  font-size: 16px;
+  font-weight: 600;
+  font-size: 14px;
   padding: 0 16px;
-  line-height: 25px;
+  line-height: 30px;
   text-align: center;
   text-decoration: none;
   user-select: none;
@@ -403,3 +419,4 @@ border-radius: 50%;
     padding: 0 25px;
   }
 }
+

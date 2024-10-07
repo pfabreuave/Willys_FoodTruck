@@ -1,71 +1,52 @@
+
 var numeroComanda2 = 0;
 var numeroComanda = 0;
 var comanda
-document.addEventListener("DOMContentLoaded", function() {
 
+document.addEventListener('DOMContentLoaded', function() {
+  // Obtener el número de la comanda de la URL
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const comandaNumber = urlParams.get('comanda');  // Extrae el número de comanda de la URL
   var numeroComandaInput = document.querySelector(".numeroComandaInput");
-  var submitButton = document.querySelector(".button-74");
+  const selectedItemsTableBody = document.getElementById("selectedItemsTableBody");
+  const totalElement = document.querySelector(".total");
+  const cantItemsElement = document.querySelector(".cantItems");
+  const comandElement = document.querySelector(".comand");
+  numeroComanda2 =  comandaNumber;
 
-  const urlParams = new URLSearchParams(window.location.search);
-  var paramComanda = urlParams.get('comanda');
-  if (paramComanda > 0){
-    numeroComanda = paramComanda;
-    procesaComanda()
+  let totalItems = 0;
+  let totalPrice = 0;
+
+  // Verificar si el número de comanda existe en LocalStorage
+  const pedidoKey = `pedido_${comandaNumber}`;
+  if (localStorage.getItem(pedidoKey)) {
+      const pedido = JSON.parse(localStorage.getItem(pedidoKey)); // Recupera la comanda del localStorage
+
+      // Iterar sobre los ítems de la comanda y agregarlos a la tabla
+      pedido.forEach(item => {
+          const newRow = document.createElement("tr");
+          newRow.innerHTML = `
+              <td>${item.cantidad}</td>
+              <td><img src="${item.img}" alt="${item.name}" style="width: 50px; height: 30px;"></td>
+              <td>${item.id}</td>
+              <td>${item.name}</td>
+              <td>R$${item.price.toFixed(2)}</td>
+          `;
+          selectedItemsTableBody.appendChild(newRow);
+
+          // Actualizar totales
+          totalItems += item.cantidad;
+          totalPrice += parseFloat(item.precioTotal);
+      });
+
+      // Mostrar los totales en el DOM
+      cantItemsElement.textContent = totalItems;
+      totalElement.textContent = `R$${totalPrice.toFixed(2)}`;
+      comandElement.textContent = comandaNumber;
+  } else {
+      alert("No se encontró la comanda en localStorage.");
   }
-
-  submitButton.addEventListener("click", function() {
-    
-      numeroComanda = numeroComandaInput.value;
-      while (numeroComanda == null || /\D/.test(numeroComanda) || numeroComanda == "") {
-        numeroComanda = prompt("Entre un valor VÁLIDO: ");
-      };
-      procesaComanda()
-    
-    });
-
-      function procesaComanda() {
-            const totalElement = document.querySelector(".total");
-            const comandElement = document.querySelector(".comand");
-            const cantItemElement = document.querySelector(".cantItems");
-            comandElement.innerHTML = numeroComanda;
-            numeroComanda2 =  numeroComanda;
-            var acumulador = 0
-            var acumulaItems = 0
-        
-            // Limpiar la tabla de productos seleccionados en la comanda
-            selectedItemsTableBody.innerHTML = '';
-            totalElement.innerHTML = '';
-            acumulador = 0;
-            acumulaItems = 0;
-        
-            // Mostrar los productos de la comanda en la tabla
-        
-            comanda = JSON.parse(localStorage.getItem("orders")) || [];
-            
-            const seleccion = comanda.filter((item) => item.comanda == numeroComanda);
-            seleccion.forEach((item) => {
-              const newRow = document.createElement("tr");
-              newRow.innerHTML = `
-                <td>${item.cantidad}</td>
-                <td><img src="${item.img}" alt="Imagen del artículo seleccionado" style="width: 50px; height: 50px;"></td>
-                <td>${item.id}${item.secuencia}</td>
-                <td>${item.name}</td>
-                <td>R$${item.precioTotal.toFixed(2)}</td>
-                <td><button class="agregarButton" title="!-- Botón de agregar --"><i class="bx bxs-chevron-up-circle"></button></td> <!-- Botón de notas -->
-              `;
-        
-              // Agregar la nueva fila a la tabla
-              selectedItemsTableBody.appendChild(newRow);
-        
-              acumulador = acumulador + item.precioTotal
-              acumulaItems = acumulaItems + item.cantidad
-            });
-            totalElement.innerHTML = acumulador.toFixed(2);
-            cantItemElement.innerHTML = acumulaItems;
-
-            numeroComandaInput.value = "";
-            numeroComandaInput.focus();
-      }
 });
 
 
